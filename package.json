@@ -1,0 +1,40 @@
+{
+  "name": "@plunkettscott/soundfx",
+  "version": "0.0.1",
+  "description": "Beautiful toolset for manipulating non-native sounds in the FiveM game world.",
+  "repository": "https://github.com/plunkettscott/soundfx",
+  "author": "Scott Plunkett <scott@contaim.net>",
+  "scripts": {
+    "build": "webpack --mode production",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "watch": "webpack --mode development --watch true"
+  },
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@citizenfx/client": "^1.0.3132-1",
+    "@citizenfx/http-wrapper": "^0.2.2",
+    "@citizenfx/server": "^1.0.3132-1",
+    "@koa/router": "^10.0.0",
+    "@types/node": "^14.0.27",
+    "fivem-js": "^1.4.0",
+    "koa": "^2.13.0"
+  },
+  "devDependencies": {
+    "@types/koa__router": "^8.0.3",
+    "@typescript-eslint/eslint-plugin": "^3.8.0",
+    "@typescript-eslint/parser": "^2.34.0",
+    "copy-webpack-plugin": "^6.3.0",
+    "eslint": "^7.6.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-loader": "^4.0.2",
+    "howler": "^2.2.1",
+    "prettier": "^2.0.5",
+    "remove-files-webpack-plugin": "^1.4.3",
+    "ts-loader": "^8.0.2",
+    "typescript": "^3.9.7",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}

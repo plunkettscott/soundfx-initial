@@ -30,7 +30,7 @@ export class Resource {
 
     sounds.forEach(s => {
       console.log(s.value)
-      console.log(s.extra)
+      console.log(s.extra.path)
     })
   }
 }

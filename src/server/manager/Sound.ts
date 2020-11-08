@@ -7,6 +7,7 @@ export enum SoundSource {
 
 export interface SoundConfiguration {
   name: string
+  path: string
   purpose?: string
   source: SoundSource
 }

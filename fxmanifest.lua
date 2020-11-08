@@ -12,6 +12,6 @@ server_script 'dist/server/*.server.js'
 ui_page 'dist/client/ui/index.html'
 
 files {
-  'dist/client/ui/index.html'
+  'dist/client/ui/index.html',
   'dist/client/ui/ui.js'
 }

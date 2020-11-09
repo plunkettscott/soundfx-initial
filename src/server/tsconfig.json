@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "*": ["types/*"]
+      "*": ["types/*", "../types/*"]
     },
     "outDir": "./",
     "noImplicitAny": false,
@@ -17,6 +17,6 @@
     "resolveJsonModule": true,
     "esModuleInterop": true
   },
-  "include": ["./**/*"],
+  "include": ["./**/*", "../types/**/*"],
   "exclude": ["**/node_modules", "**/__tests__/*"]
 }

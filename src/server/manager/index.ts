@@ -1,5 +1,6 @@
 import { Resource, ResourceConfiguration } from './Resource'
 import { Metadata } from '../metadata/index'
+import { Sound } from './Sound'
 
 export interface Resources {
   [key: string]: Resource
@@ -18,8 +19,8 @@ export class Manager {
     return Object.keys(this.resourceStore)
   }
 
-  public hasResource(Resource: string): boolean {
-    return this.resources.indexOf(Resource) > -1
+  public hasResource(resource: string): boolean {
+    return this.resources.indexOf(resource) > -1
   }
 
   public resource(resource: string): Resource | null {
@@ -30,11 +31,28 @@ export class Manager {
     return null
   }
 
-  public registerResource(resource: string, config: Partial<ResourceConfiguration> = {}): void {
+  public soundFromResource(resource: string, sound: string): Sound | null {
     if (this.hasResource(resource)) {
-      return
+      if (this.resource(resource).hasSound(sound)) {
+        return this.resource(resource).sound(sound)
+      }
     }
 
-    this.resources[resource] = new Resource({ ...config, resource })
+    return null
+  }
+
+  public regiserKnownResources(): void {
+    this.metadata
+      .getResourceNames()
+      .forEach((r) => {
+        setImmediate(() => {
+          this.registerResource(r)
+        })
+      })
+  }
+
+  public registerResource(resource: string, config: Partial<ResourceConfiguration> = {}): void {
+    console.log(`[SoundFX] Found the '${resource}' resource.`)
+    this.resourceStore[resource] = new Resource({ ...config, resource })
   }
 }

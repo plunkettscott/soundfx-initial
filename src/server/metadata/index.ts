@@ -19,7 +19,7 @@ export class Metadata {
     for (let i = 0; i < count; i++) {
       value.push({
         value: GetResourceMetadata(resourceName, key, i),
-        extra: <E>(GetResourceMetadata(resourceName, key + '_extra', i) as unknown),
+        extra: <E>(JSON.parse(GetResourceMetadata(resourceName, key + '_extra', i)) as unknown),
       })
     }
 
@@ -33,7 +33,11 @@ export class Metadata {
   public getResourceNames(): string[] {
     const resources = []
     for (let i = 0; i < GetNumResources(); i++) {
-      resources.push(GetResourceByFindIndex(i))
+      const resource = GetResourceByFindIndex(i)
+
+      if (resource && GetResourceState(resource) === 'started') {
+        resources.push(GetResourceByFindIndex(i))
+      }
     }
 
     return resources

@@ -35,7 +35,7 @@ const server = {
     extensions: ['.tsx', '.ts', '.js'],
   },
   output: {
-    filename: '[contenthash].server.js',
+    filename: 'server.js',
     path: path.resolve(buildPath, 'server'),
   },
   target: 'node',
@@ -69,7 +69,7 @@ const client = {
     extensions: ['.tsx', '.ts', '.js'],
   },
   output: {
-    filename: '[contenthash].client.js',
+    filename: 'client.js',
     path: path.resolve(buildPath, 'client'),
   },
 };
